@@ -6,4 +6,6 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = withSentryConfig(nextConfig)
+module.exports = withSentryConfig(nextConfig, {
+  dryRun: process.env.VERCEL_ENV !== 'production',
+})
