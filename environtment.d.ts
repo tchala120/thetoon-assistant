@@ -4,5 +4,6 @@ namespace NodeJS {
     NODE_ENV: 'development' | 'production'
     PORT?: string
     PWD: string
+    SENTRY_AUTH_TOKEN: string
   }
 }

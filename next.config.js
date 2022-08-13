@@ -7,5 +7,6 @@ const nextConfig = {
 }
 
 module.exports = withSentryConfig(nextConfig, {
+  authToken: process.env.SENTRY_AUTH_TOKEN,
   dryRun: process.env.VERCEL_ENV !== 'production',
 })
