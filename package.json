@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install",
+    "format": "prettier --write --ignore-unknown '**/*.{js,jsx,ts,tsx,css,md,json}'"
   },
   "dependencies": {
+    "@sentry/react": "^7.10.0",
+    "@sentry/tracing": "^7.10.0",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -19,6 +23,21 @@
     "@types/react-dom": "18.0.6",
     "eslint": "8.21.0",
     "eslint-config-next": "12.2.5",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "2.7.1",
     "typescript": "4.7.4"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false,
+    "arrowParens": "always",
+    "printWidth": 80
+  },
+  "lint-staged": {
+    "**/*": "yarn format"
   }
 }
