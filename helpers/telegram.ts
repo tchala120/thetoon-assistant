@@ -5,6 +5,7 @@ import type { CryptoNews } from './types'
 interface SendMessageInput {
   chat_id: string
   text: string
+  parse_mode: 'markdown'
 }
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
@@ -20,7 +21,11 @@ export const sendMessage = async (feed: CryptoNews) => {
     url: '/sendMessage',
     data: {
       chat_id: CHANNEL_ID,
-      text: `${feed.title}\b\b${feed.url}`,
+      text:
+        `*From: ${feed.feedTitle}*\n\n` +
+        `*${feed.title}*\n\n` +
+        `[Read more](${feed.url})\n`,
+      parse_mode: 'markdown',
     },
   }
 
