@@ -11,6 +11,8 @@
     "format": "prettier --write --ignore-unknown '**/*.{js,jsx,ts,tsx,css,md,json}'"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
     "@sentry/nextjs": "^7.10.0",
     "axios": "^0.27.2",
     "http-status-codes": "^2.2.0",
