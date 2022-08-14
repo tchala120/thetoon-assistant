@@ -23,6 +23,7 @@ namespace NodeJS {
      */
     NEXT_PUBLIC_SUPABASE_URL: string
     NEXT_PUBLIC_SUPABASE_ANON_KEY: string
+    NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY: string
     SUPABASE_SERVICE_ROLE_KEY: string
 
     /**
@@ -31,5 +32,10 @@ namespace NodeJS {
     LINE_API_KEY: string
     LINE_USER_ID: string
     LINE_CHANNEL_ACCESS_TOKEN: string
+
+    /**
+     * SEO configuration env
+     */
+    NEXT_PUBLIC_CANONICAL: string
   }
 }
