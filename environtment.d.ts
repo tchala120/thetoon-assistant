@@ -5,5 +5,7 @@ namespace NodeJS {
     PORT?: string
     PWD: string
     SENTRY_AUTH_TOKEN: string
+    TELEGRAM_BOT_TOKEN: string
+    TELEGRAM_CHANNEL_ID: string
   }
 }
