@@ -1,6 +1,6 @@
 import Axios, { AxiosRequestConfig } from 'axios'
 
-import type { CryptoNews } from './types'
+import type { News } from 'model/news'
 
 interface SendMessageInput {
   chat_id: string
@@ -15,7 +15,7 @@ const axios = Axios.create({
   baseURL: `https://api.telegram.org/bot${BOT_TOKEN}`,
 })
 
-export const sendMessage = async (feed: CryptoNews) => {
+export const sendMessage = async (feed: News) => {
   const config: AxiosRequestConfig<SendMessageInput> = {
     method: 'POST',
     url: '/sendMessage',
