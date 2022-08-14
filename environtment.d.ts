@@ -21,9 +21,9 @@ namespace NodeJS {
     /**
      * Supabase configuration env
      */
-    SUPABASE_URL: string
-    SUPABASE_ANON_PUBLIC_KEY: string
-    SUPABASE_SEVICE_ROLE_KEY: string
+    NEXT_PUBLIC_SUPABASE_URL: string
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: string
+    SUPABASE_SERVICE_ROLE_KEY: string
 
     /**
      * Line configuration env
