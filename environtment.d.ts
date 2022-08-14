@@ -24,5 +24,12 @@ namespace NodeJS {
     SUPABASE_URL: string
     SUPABASE_ANON_PUBLIC_KEY: string
     SUPABASE_SEVICE_ROLE_KEY: string
+
+    /**
+     * Line configuration env
+     */
+    LINE_API_KEY: string
+    LINE_USER_ID: string
+    LINE_CHANNEL_ACCESS_TOKEN: string
   }
 }
