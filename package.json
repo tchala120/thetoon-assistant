@@ -13,6 +13,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@line/bot-sdk": "^7.5.0",
     "@sentry/nextjs": "^7.10.0",
     "@supabase/supabase-js": "^1.35.6",
     "axios": "^0.27.2",
