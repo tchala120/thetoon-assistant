@@ -1,6 +1,7 @@
 import supabase from 'helpers/supabase'
 
 export interface News {
+  id: number
   title: string
   url: string
   author: string
@@ -12,6 +13,7 @@ export interface News {
 }
 
 const news = {
+  get: () => supabase.from<News>('news'),
   create: (record: News) => supabase.from<News>('news').insert(record),
   delete: (id: number) => supabase.from('news').delete().match({ id }),
 }
