@@ -6,14 +6,18 @@ import { StatusCodes } from 'http-status-codes'
 import { sendMessage } from 'helpers/telegram'
 
 const handler = async (request: NextApiRequest, response: NextApiResponse) => {
-  console.log(request.body)
-
   if (request.method === 'POST') {
     sendMessage(request.body)
-      .then((data) => {
-        response.status(StatusCodes.OK).json({ message: 'Message sent!' })
+      .then(({ data }) => {
+        const body = { message: 'Message sent!', data }
+
+        console.log(body)
+
+        response.status(StatusCodes.OK).json(body)
       })
       .catch((error) => {
+        console.log(error)
+
         response
           .status(StatusCodes.BAD_REQUEST)
           .json({ message: 'Failed to sent message!', error })
