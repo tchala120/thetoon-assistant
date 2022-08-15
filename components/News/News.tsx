@@ -15,7 +15,7 @@ const News = ({ data }: NewsProps) => {
         <a style={{ textDecoration: 'none' }}>
           <Card>
             <Text size="xs" color="#999">
-              {data.feedTitle}
+              From: {data.feedTitle}
             </Text>
 
             <Text weight={500}>{data.title}</Text>
