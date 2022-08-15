@@ -21,7 +21,7 @@ const NewsPage = ({ news }: NewsPage) => {
   const [listNews, setListNews] = useState<NewsType[] | undefined>(news)
 
   useEffect(() => {
-    supabase
+    const messageListener = supabase
       .from<NewsType>('news')
       .on('INSERT', (payload) => {
         console.log('New item', payload)
@@ -34,7 +34,13 @@ const NewsPage = ({ news }: NewsPage) => {
         })
       })
       .subscribe()
-  })
+
+    return () => {
+      messageListener
+        .unsubscribe()
+        .receive('ok', () => console.error('!SUBSCRIPTION REMOVED!'))
+    }
+  }, [])
 
   return (
     <PageLayout
