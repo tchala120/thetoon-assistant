@@ -30,6 +30,8 @@ const news = {
       data: news,
     }
   },
+  getById: (id: number) =>
+    supabase.from<News>('news').select('*').match({ id }),
   create: (record: News) => supabase.from<News>('news').insert(record),
   delete: (id: number) => supabase.from('news').delete().match({ id }),
 }
