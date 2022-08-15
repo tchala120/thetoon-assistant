@@ -36,6 +36,6 @@ namespace NodeJS {
     /**
      * SEO configuration env
      */
-    NEXT_PUBLIC_CANONICAL: string
+    NEXT_PUBLIC_SITE_URL: string
   }
 }

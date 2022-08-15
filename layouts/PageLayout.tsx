@@ -14,15 +14,15 @@ interface PageLayoutProps {
 const PageLayout = ({ title, description, children }: PageLayoutProps) => {
   return (
     <PageLayoutContainer>
-      <NextSeo title={title} description={description} />
+      <Container mx="auto" size="xs" px="md">
+        <NextSeo title={title} description={description} />
 
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="shortcut icon" href="/toon.webp" />
-      </Head>
+        <Head>
+          <title>{title}</title>
+          <meta name="description" content={description} />
+          <link rel="shortcut icon" href="/toon.webp" />
+        </Head>
 
-      <Container mx="auto" size="xs" p="md">
         {children}
       </Container>
     </PageLayoutContainer>

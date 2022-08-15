@@ -23,17 +23,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         <RouterTransition />
 
         <DefaultSeo
-          canonical={meta.canonical}
+          canonical={meta.siteUrl}
           openGraph={{
             type: 'website',
             locale: 'en_TH',
-            url: 'https://bot.panupong.io',
+            url: meta.siteUrl,
             title: meta.title,
             description: meta.description,
             site_name: 'TheToon Bot',
             images: [
               {
-                url: 'https://bot.panupong.io/og-image.webp',
+                url: `${meta.siteUrl}/og-image.webp`,
                 alt: meta.description,
                 width: 800,
                 height: 600,
