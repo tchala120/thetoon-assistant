@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import supabase from 'helpers/supabase'
 
 export interface News {
@@ -10,10 +11,25 @@ export interface News {
   published: string
   feedTitle: string
   feedUrl: string
+  created_at: Date
 }
 
 const news = {
-  get: () => supabase.from<News>('news'),
+  get: async () => {
+    const data = await supabase.from<News>('news')
+
+    const news = data.data?.sort((a, b) => {
+      const first = dayjs(a.created_at)
+      const second = dayjs(b.created_at)
+
+      return first.isBefore(second) ? 1 : -1
+    })
+
+    return {
+      ...data,
+      data: news,
+    }
+  },
   create: (record: News) => supabase.from<News>('news').insert(record),
   delete: (id: number) => supabase.from('news').delete().match({ id }),
 }
