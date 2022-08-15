@@ -1009,6 +1009,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tabler/icons@^1.82.0":
+  version "1.82.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.82.0.tgz#ff135e6fec136e2128faa6e30b93e64d8bf42b77"
+  integrity sha512-Ai5vbnOvJ38oQ7mHVvWAZ0oUzLtdd83oxQmxOnvX9jaHYDhkQbFVRofBY+Z1W/+NOPcxe5k3iI9rf8q0VINCHg==
+
 "@tanstack/query-core@^4.0.0-beta.1":
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.1.3.tgz#06b24315577971376b5a15124fc132c0b3ebc1b3"
