@@ -24,6 +24,8 @@ const NewsPage = ({ news }: NewsPage) => {
     supabase
       .from<NewsType>('news')
       .on('INSERT', (payload) => {
+        console.log('New item', payload)
+
         setListNews((prevListNews) => [payload.new, ...(prevListNews || [])])
 
         showNotification({
