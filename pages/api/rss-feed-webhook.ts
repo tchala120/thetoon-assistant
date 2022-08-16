@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { withSentry } from '@sentry/nextjs'
 import { StatusCodes } from 'http-status-codes'
 
-import news, { News } from 'model/news'
+import { News } from 'model/news'
 
 import { sendMessage } from 'helpers/telegram'
 
@@ -19,8 +19,6 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
   }
 
   if (request.method === 'POST') {
-    await news.create(request.body)
-
     sendMessage(request.body)
       .then(({ data }) => {
         const body = { message: 'Message sent!', data }
