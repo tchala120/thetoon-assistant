@@ -29,7 +29,7 @@ namespace NodeJS {
     /**
      * Line configuration env
      */
-    LINE_LIFF_ID: string
+    NEXT_PUBLIC_LINE_LIFF_ID: string
 
     /**
      * SEO configuration env
