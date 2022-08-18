@@ -22,8 +22,8 @@ export const sendMessage = async (feed: News) => {
     data: {
       chat_id: CHANNEL_ID,
       text:
-        `*From: ${feed.feedTitle}*\n\n` +
         `*${feed.title}*\n\n` +
+        `*From: ${feed.feedTitle}*\n\n` +
         `[Read more](${feed.url})\n`,
       parse_mode: 'markdown',
     },
