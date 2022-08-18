@@ -31,9 +31,11 @@
     "next-seo": "^5.5.0",
     "next-sitemap": "^3.1.17",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-use": "^17.4.0"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.10.0",
     "@types/node": "18.7.3",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
