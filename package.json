@@ -1,10 +1,10 @@
 {
-  "name": "thetoon-bot",
+  "name": "thetoon-assistant",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "PORT=3200 NEXT_PUBLIC_VERSION=$npm_package_version next dev",
+    "build": "PORT=3200 NEXT_PUBLIC_VERSION=$npm_package_version next build",
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
@@ -15,6 +15,7 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@line/bot-sdk": "^7.5.0",
+    "@line/liff": "^2.21.0",
     "@mantine/core": "^5.1.6",
     "@mantine/hooks": "^5.1.6",
     "@mantine/notifications": "^5.1.6",
