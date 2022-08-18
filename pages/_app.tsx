@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             url: meta.siteUrl,
             title: meta.title,
             description: meta.description,
-            site_name: 'TheToon Bot',
+            site_name: 'TheToon Assistant',
             images: [
               {
                 url: `${meta.siteUrl}/og-image.webp`,

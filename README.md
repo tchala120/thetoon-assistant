@@ -1,4 +1,4 @@
-## TheToon Bot
+## TheToon Assistant
 
 The personal assistant for myself to make my life goes easier.
 

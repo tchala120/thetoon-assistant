@@ -8,7 +8,7 @@ import Center from 'components/Center'
 const Home: NextPage = () => {
   return (
     <PageLayout
-      title="TheToon Bot - The personal assistant for myself"
+      title="TheToon Assistant - The personal assistant for myself"
       description="Crypto news aggregator"
     >
       <Center>

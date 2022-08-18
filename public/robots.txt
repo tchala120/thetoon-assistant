@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://bot.panupong.io
+Host: https://assistant.panupong.io
 
 # Sitemaps
-Sitemap: https://bot.panupong.io/sitemap.xml
+Sitemap: https://assistant.panupong.io/sitemap.xml
