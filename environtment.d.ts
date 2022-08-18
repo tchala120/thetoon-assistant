@@ -29,9 +29,7 @@ namespace NodeJS {
     /**
      * Line configuration env
      */
-    LINE_API_KEY: string
-    LINE_USER_ID: string
-    LINE_CHANNEL_ACCESS_TOKEN: string
+    LINE_LIFF_ID: string
 
     /**
      * SEO configuration env
