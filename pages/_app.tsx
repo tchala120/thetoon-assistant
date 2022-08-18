@@ -1,14 +1,25 @@
 import type { AppProps } from 'next/app'
 
-import { MantineProvider } from '@mantine/core'
+import { LoadingOverlay, MantineProvider } from '@mantine/core'
 import { NotificationsProvider } from '@mantine/notifications'
 import { DefaultSeo } from 'next-seo'
 
 import RouterTransition from 'components/RouterTransition'
 
+import useSetupLiff from 'hooks/useSetupLiff'
+
 import { meta } from 'constants/meta'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const { loading, liff, error } = useSetupLiff()
+
+  if (loading || liff == null) {
+    return <LoadingOverlay visible transitionDuration={500} />
+  }
+
+  pageProps.liff = liff
+  pageProps.liffError = error
+
   return (
     <MantineProvider
       withGlobalStyles
