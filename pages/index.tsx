@@ -1,33 +1,16 @@
-import { Button } from '@mantine/core'
-
 import PageLayout from 'layouts/PageLayout'
 
-import PageTitle from 'components/PageTitle'
-import Center from 'components/Center'
+import Home from 'components/Home'
 
-import type { NextPageComponentProps } from 'types'
-
-const Home = ({ liff }: NextPageComponentProps) => {
+const HomePage = () => {
   return (
     <PageLayout
       title="TheToon Assistant - The personal assistant for myself"
       description="Crypto news aggregator"
     >
-      <Center>
-        <PageTitle>Home Page</PageTitle>
-
-        <Button
-          onClick={() => {
-            liff.logout()
-
-            window.location.reload()
-          }}
-        >
-          Logout
-        </Button>
-      </Center>
+      <Home />
     </PageLayout>
   )
 }
 
-export default Home
+export default HomePage
