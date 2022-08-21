@@ -51,7 +51,7 @@ const CreateNewTaskPopup = ({
       <Content>
         <Form form={form} onFinish={onFinish}>
           <Form.Item label="Name" name="name" rules={[ruleRequired]}>
-            <Input autoFocus />
+            <Input />
           </Form.Item>
 
           <Form.Item label="Description" name="description">
