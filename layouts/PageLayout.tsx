@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 
+import Head from 'next/head'
 import { NextSeo } from 'next-seo'
 import styled from '@emotion/styled'
-import Head from 'next/head'
 
 interface PageLayoutProps {
   title: string
