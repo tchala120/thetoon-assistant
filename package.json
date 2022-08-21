@@ -15,7 +15,6 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@line/bot-sdk": "^7.5.0",
-    "@line/liff": "^2.21.0",
     "@sentry/nextjs": "^7.10.0",
     "@supabase/supabase-js": "^1.35.6",
     "@tabler/icons": "^1.82.0",
