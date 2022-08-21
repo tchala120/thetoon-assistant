@@ -17,7 +17,7 @@ export interface Todo {
 const todoCollection = supabase.from<Todo>('todos')
 
 const todos = {
-  get: () => todoCollection,
+  get: () => todoCollection.select(),
   getByID: (id: number) => todoCollection.select('*').eq('id', id),
   reminder: () => {
     const timeNow = new Date().toLocaleTimeString('en-US', {
