@@ -30,6 +30,7 @@ namespace NodeJS {
      * Line configuration env
      */
     NEXT_PUBLIC_LINE_LIFF_ID: string
+    NEXT_PUBLIC_LINE_CHANNEL_ACCESS_TOKEN: string
 
     /**
      * SEO configuration env
