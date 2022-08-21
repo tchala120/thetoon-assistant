@@ -27,7 +27,7 @@ const Home = () => {
     <Center>
       <PageTitle>Services</PageTitle>
 
-      <SimpleGrid style={{ width: '100%' }} cols={2} spacing="md">
+      <SimpleGrid style={{ width: '80%' }} cols={2} spacing="md">
         {listServices.map((service) => (
           <Service key={service.id} service={service} />
         ))}
