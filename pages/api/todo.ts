@@ -8,7 +8,10 @@ import todos from 'model/todos'
 const handler = async (request: NextApiRequest, response: NextApiResponse) => {
   const { query, method, body } = request
 
-  const todoID = Number(Array.isArray(query.id) ? query.id[0] : query.id)
+  const todoID =
+    query.id == null
+      ? undefined
+      : Number(Array.isArray(query.id) ? query.id[0] : query.id)
 
   switch (method) {
     case 'GET':
@@ -33,7 +36,7 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
       break
 
     case 'DELETE':
-      const deleteTodo = await todos.delete(todoID)
+      const deleteTodo = await todos.delete(todoID as number)
 
       response.status(StatusCodes.NO_CONTENT).json(deleteTodo.body)
       break
