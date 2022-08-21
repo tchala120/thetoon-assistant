@@ -7,14 +7,12 @@ namespace NodeJS {
     /**
      * Sentry configuration env
      */
-
     SENTRY_AUTH_TOKEN: string
     NEXT_PUBLIC_SENTRY_DNS: string // this is the line you want
 
     /**
      * Telagram configuration env
      */
-
     TELEGRAM_BOT_TOKEN: string
     TELEGRAM_CHANNEL_ID: string
 
@@ -29,6 +27,7 @@ namespace NodeJS {
     /**
      * Line configuration env
      */
+    API_KEY: string
     LINE_USER_ID: string
     NEXT_PUBLIC_LINE_LIFF_ID: string
     NEXT_PUBLIC_LINE_CHANNEL_ACCESS_TOKEN: string
