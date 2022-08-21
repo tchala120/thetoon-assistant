@@ -1,4 +1,4 @@
-import { SimpleGrid } from '@mantine/core'
+import { Grid } from 'antd-mobile'
 import { IconChecklist, IconReceipt2 } from '@tabler/icons'
 
 import Center from 'components/Center'
@@ -27,11 +27,13 @@ const Home = () => {
     <Center>
       <PageTitle>Services</PageTitle>
 
-      <SimpleGrid style={{ width: '80%' }} cols={2} spacing="md">
+      <Grid columns={2} gap={16}>
         {listServices.map((service) => (
-          <Service key={service.id} service={service} />
+          <Grid.Item key={service.id}>
+            <Service service={service} />
+          </Grid.Item>
         ))}
-      </SimpleGrid>
+      </Grid>
     </Center>
   )
 }
