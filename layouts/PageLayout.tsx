@@ -1,26 +1,14 @@
-import type { ReactNode } from 'react'
-
-import Head from 'next/head'
-import { NextSeo } from 'next-seo'
 import styled from '@emotion/styled'
 
-interface PageLayoutProps {
-  title: string
-  description: string
-  children: ReactNode
-}
+import Header from './Header'
 
-const PageLayout = ({ title, description, children }: PageLayoutProps) => {
+import type { LayoutProps } from './types'
+
+const PageLayout = ({ title, description, children }: LayoutProps) => {
   return (
     <PageLayoutContainer>
       <Container>
-        <NextSeo title={title} description={description} />
-
-        <Head>
-          <title>{title}</title>
-          <meta name="description" content={description} />
-          <link rel="shortcut icon" href="/toon.webp" />
-        </Head>
+        <Header title={title} description={description} />
 
         {children}
       </Container>
