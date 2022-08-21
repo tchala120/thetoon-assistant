@@ -18,7 +18,7 @@ const listServices: ServiceMenu[] = [
     id: 2,
     title: 'Todo',
     icon: <IconChecklist size={36} />,
-    destination: '/todos',
+    destination: '/todo',
   },
 ]
 
