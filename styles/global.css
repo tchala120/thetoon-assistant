@@ -17,6 +17,12 @@
   padding: 0;
   margin: 0;
   font-family: Euclid, sans-serif;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #121212;
 }
 
 a {
