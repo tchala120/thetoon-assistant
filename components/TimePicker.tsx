@@ -21,7 +21,7 @@ const TimePicker = ({ buttonText, value, onChange }: TimePickerProps) => {
   return (
     <>
       <Button block color="primary" onClick={() => setVisible(true)}>
-        {buttonText || 'Select time'}
+        {renderButtonText()}
       </Button>
 
       <Picker
@@ -37,6 +37,14 @@ const TimePicker = ({ buttonText, value, onChange }: TimePickerProps) => {
       />
     </>
   )
+
+  function renderButtonText() {
+    if (value) {
+      return value
+    }
+
+    return buttonText || 'Select time'
+  }
 }
 
 export default TimePicker
@@ -59,10 +67,10 @@ export const createHourTimePicker = (): PickerColumnItem[] => {
 }
 
 export const createMinuteTimePicker = (): PickerColumnItem[] => {
-  const minutes = Array(59).fill(0)
+  const minutes = Array(60).fill(0)
 
   return minutes.map((_, index) => {
-    const minute = createTimeUnit((index + 1).toString())
+    const minute = createTimeUnit(index.toString())
 
     return {
       key: minute,
