@@ -1,3 +1,25 @@
+@font-face {
+  font-family: Euclid, sans-serif;
+  src: url(/fonts/regular.ttf);
+}
+
+@font-face {
+  font-family: 'Euclid Medium', sans-serif;
+  src: url(/fonts/medium.ttf);
+}
+
+@font-face {
+  font-family: 'Euclid Bold', sans-serif;
+  src: url(/fonts/bold.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Euclid, sans-serif;
+  box-sizing: border-box;
+}
+
 a {
   text-decoration: none;
 }

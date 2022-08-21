@@ -1,11 +1,12 @@
+import Link from 'next/link'
+import { Button } from 'antd-mobile'
+
 import PageLayout from 'layouts/PageLayout'
 
 import Center from 'components/Center'
 import PageTitle from 'components/PageTitle'
 
 import { meta } from 'constants/meta'
-import { Button } from '@mantine/core'
-import Link from 'next/link'
 
 const NotFoundPage = () => {
   return (
@@ -15,7 +16,7 @@ const NotFoundPage = () => {
 
         <Link href="/">
           <a>
-            <Button>Back to home</Button>
+            <Button color="primary">Back to home</Button>
           </a>
         </Link>
       </Center>

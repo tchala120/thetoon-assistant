@@ -8,6 +8,15 @@
           "importSource": "@emotion/react"
         }
       }
+    ],
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "chrome": "49",
+          "ios": "10"
+        }
+      }
     ]
   ],
   "plugins": ["@emotion/babel-plugin"]

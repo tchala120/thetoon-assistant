@@ -30,9 +30,8 @@ const ServiceCard = styled.div`
   gap: 12px;
   justify-content: center;
   align-items: center;
-  border: 1px solid #fff;
+  border: 3px solid #121212;
   border-radius: 8px;
-  background-color: #fff;
   color: #121212;
   text-decoration: none;
   transition: all 0.15s ease-in-out;
