@@ -3,8 +3,7 @@ import 'styles/global.css'
 import type { AppProps } from 'next/app'
 
 import { DefaultSeo } from 'next-seo'
-
-import RouterTransition from 'components/RouterTransition'
+import NextNProgress from 'nextjs-progressbar'
 
 import { LiffProvider } from 'context/useLiffContext'
 
@@ -24,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <LiffProvider lineLiff={liff}>
-      <RouterTransition />
+      <NextNProgress color="#1677ff" />
 
       <DefaultSeo
         canonical={meta.siteUrl}
