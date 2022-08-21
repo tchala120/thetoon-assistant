@@ -29,6 +29,7 @@ namespace NodeJS {
     /**
      * Line configuration env
      */
+    LINE_USER_ID: string
     NEXT_PUBLIC_LINE_LIFF_ID: string
     NEXT_PUBLIC_LINE_CHANNEL_ACCESS_TOKEN: string
 
