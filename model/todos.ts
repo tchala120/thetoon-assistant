@@ -14,8 +14,11 @@ export interface Todo {
   updated_at: string
 }
 
+const todoCollection = supabase.from<Todo>('todos')
+
 const todos = {
-  get: () => supabase.from('todos'),
+  get: () => todoCollection,
+  getByID: (id: number) => todoCollection.select('*').eq('id', id),
   reminder: () => {
     const timeNow = new Date().toLocaleTimeString('en-US', {
       hour12: false,
@@ -30,9 +33,8 @@ const todos = {
       .eq('reminded', false)
       .eq('isCompleted', false)
   },
-  createOrUpdate: (todo: Todo | Todo[]) =>
-    supabase.from<Todo>('todos').upsert(todo),
-  delete: (id: number) => supabase.from<Todo>('todos').delete().match({ id }),
+  createOrUpdate: (todo: Todo | Todo[]) => todoCollection.upsert(todo),
+  delete: (id: number) => todoCollection.delete().match({ id }),
 }
 
 export default todos
