@@ -27,7 +27,7 @@ const ServiceCard = styled.div`
   aspect-ratio: 1/1;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
   justify-content: center;
   align-items: center;
   border: 1px solid #fff;
