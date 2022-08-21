@@ -6,7 +6,7 @@ import supabase from 'helpers/supabase'
 export interface Todo {
   id: number
   name: string
-  description: string
+  description?: string
   isCompleted: false
   reminder: string
   reminded: boolean
@@ -60,7 +60,8 @@ export const createReminderFlexMessage = (todo: Todo): Message => {
     },
     {
       type: 'text',
-      text: todo.description,
+      color: todo.description == null ? '#999999' : '#000000',
+      text: todo.description || 'ไม่คำอธิบาย',
     },
     {
       type: 'box',
