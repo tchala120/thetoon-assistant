@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 
-import { Container } from '@mantine/core'
 import { NextSeo } from 'next-seo'
 import styled from '@emotion/styled'
 import Head from 'next/head'
@@ -14,7 +13,7 @@ interface PageLayoutProps {
 const PageLayout = ({ title, description, children }: PageLayoutProps) => {
   return (
     <PageLayoutContainer>
-      <Container mx="auto" size="xs" px="md">
+      <Container>
         <NextSeo title={title} description={description} />
 
         <Head>
@@ -36,4 +35,13 @@ const PageLayoutContainer = styled.div`
   min-height: 100vh;
   background: #121212;
   color: #f8f8f8;
+  padding: 0 24px;
+`
+
+const Container = styled.div`
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  max-width: 768px;
 `
