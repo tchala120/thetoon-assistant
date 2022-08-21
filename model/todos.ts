@@ -21,6 +21,7 @@ const todos = {
   getByID: (id: number) => todoCollection.select('*').eq('id', id),
   reminder: () => {
     const timeNow = new Date().toLocaleTimeString('en-US', {
+      timeZone: 'Asia/Bangkok',
       hour12: false,
       hour: '2-digit',
       minute: '2-digit',
