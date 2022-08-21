@@ -17,6 +17,7 @@ interface AppLayoutProps extends LayoutProps {
 const AppLayout = ({
   title,
   description,
+  noPadding = false,
   bottom,
   children,
 }: AppLayoutProps) => {
@@ -37,7 +38,7 @@ const AppLayout = ({
         </NavBar>
       </AppBar>
 
-      <Content>{children}</Content>
+      <Content noPadding={noPadding}>{children}</Content>
 
       {bottom && <Bottom>{bottom}</Bottom>}
     </AppLayoutContainer>
@@ -58,9 +59,9 @@ const AppBar = styled.div`
   box-shadow: 0 5px 40px var(--adm-color-border);
 `
 
-const Content = styled.div`
+const Content = styled.div<Pick<AppLayoutProps, 'noPadding'>>`
   flex: 1;
-  padding: 12px;
+  padding: ${(p) => (p.noPadding ? 0 : '12px')};
   overflow-x: hidden;
   overflow-y: auto;
 `
