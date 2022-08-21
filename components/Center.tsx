@@ -1,13 +1,14 @@
 import styled from '@emotion/styled'
 
 const Center = styled.div`
-  width: 100%;
-  min-height: 100vh;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 100%;
+  height: 100%;
 
   > * {
     width: 100%;

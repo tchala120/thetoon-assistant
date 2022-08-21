@@ -1,11 +1,12 @@
 import type { ReactNode } from 'react'
 
 import { useRouter } from 'next/router'
-import { NavBar } from 'antd-mobile'
 import styled from '@emotion/styled'
 import { SetOutline } from 'antd-mobile-icons'
 import { sentenceCase } from 'change-case'
 
+import AppBar from 'components/AppBar'
+import BottomActionBar from 'components/BottomActionBar'
 import Header from './Header'
 
 import type { LayoutProps } from './types'
@@ -17,6 +18,7 @@ interface AppLayoutProps extends LayoutProps {
 const AppLayout = ({
   title,
   description,
+  noPadding = false,
   bottom,
   children,
 }: AppLayoutProps) => {
@@ -26,20 +28,18 @@ const AppLayout = ({
     <AppLayoutContainer>
       <Header title={title} description={description} />
 
-      <AppBar>
-        <NavBar
-          onBack={() => {
-            router.back()
-          }}
-          right={<SetOutline fontSize={24} color="var(--adm-color-primary)" />}
-        >
-          {sentenceCase(router.pathname)}
-        </NavBar>
+      <AppBar
+        onBack={() => {
+          router.back()
+        }}
+        right={<SetOutline fontSize={24} color="var(--adm-color-primary)" />}
+      >
+        {sentenceCase(router.pathname)}
       </AppBar>
 
-      <Content>{children}</Content>
+      <Content noPadding={noPadding}>{children}</Content>
 
-      {bottom && <Bottom>{bottom}</Bottom>}
+      {bottom && <BottomActionBar>{bottom}</BottomActionBar>}
     </AppLayoutContainer>
   )
 }
@@ -52,21 +52,9 @@ const AppLayoutContainer = styled.div`
   flex-direction: column;
 `
 
-const AppBar = styled.div`
-  padding: 8px 0;
-  border-bottom: 1px solid var(--adm-color-border);
-  box-shadow: 0 5px 40px var(--adm-color-border);
-`
-
-const Content = styled.div`
+const Content = styled.div<Pick<AppLayoutProps, 'noPadding'>>`
   flex: 1;
-  padding: 12px;
+  padding: ${(p) => (p.noPadding ? 0 : '12px')};
   overflow-x: hidden;
   overflow-y: auto;
-`
-
-const Bottom = styled.div`
-  flex: 0;
-  padding: 12px;
-  border-top: 1px solid var(--adm-color-border);
 `
