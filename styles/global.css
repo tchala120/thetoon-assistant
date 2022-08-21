@@ -20,11 +20,6 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  background: #121212;
-}
-
 a {
   text-decoration: none;
 }

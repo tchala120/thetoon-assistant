@@ -33,8 +33,7 @@ export default PageLayout
 const PageLayoutContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  background: #121212;
-  color: #f8f8f8;
+  color: #121212;
   padding: 0 24px;
 `
 
