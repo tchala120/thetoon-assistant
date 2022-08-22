@@ -13,9 +13,9 @@ interface TodoListProps {
 const TodoList = ({ tasks }: TodoListProps) => {
   if (tasks?.length === 0) {
     return (
-      <Center>
+      <>
         <PageTitle style={{ padding: 0, margin: 0 }}>Tasks not found</PageTitle>
-      </Center>
+      </>
     )
   }
 

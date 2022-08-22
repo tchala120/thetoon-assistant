@@ -24,7 +24,7 @@ const listServices: ServiceMenu[] = [
 
 const Home = () => {
   return (
-    <Center>
+    <>
       <PageTitle>Services</PageTitle>
 
       <Grid columns={2} gap={16}>
@@ -34,7 +34,7 @@ const Home = () => {
           </Grid.Item>
         ))}
       </Grid>
-    </Center>
+    </>
   )
 }
 
