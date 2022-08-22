@@ -35,7 +35,12 @@ const CreateNewTaskPopup = ({
       destroyOnClose
       visible={visible}
       onMaskClick={onClose}
-      bodyStyle={{ height: '100vh', display: 'flex', flexDirection: 'column' }}
+      bodyStyle={{
+        minHeight: '-webkit-fill-availble',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
     >
       <AppBar
         backArrow={false}

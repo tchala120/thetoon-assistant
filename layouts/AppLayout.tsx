@@ -47,7 +47,7 @@ const AppLayout = ({
 export default AppLayout
 
 const AppLayoutContainer = styled.div`
-  height: 100vh;
+  height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
 `

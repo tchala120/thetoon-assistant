@@ -20,7 +20,7 @@ export default PageLayout
 
 const PageLayoutContainer = styled.div`
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   color: #121212;
   padding: 0 24px;
 `
@@ -29,6 +29,6 @@ const Container = styled.div`
   display: block;
   margin: 0 auto;
   width: 100%;
-  height: 100vh;
+  height: -webkit-fill-available;
   max-width: 768px;
 `
