@@ -1,3 +1,5 @@
+import type { GetServerSideProps } from 'next'
+
 import { useState } from 'react'
 import { Button } from 'antd-mobile'
 
@@ -12,14 +14,22 @@ import CreateNewTaskPopup, {
 import useCreateOrUpdateTodo from 'react-query/useCreateOrUpdateTodo'
 import useListTodo from 'react-query/useListTodos'
 
+import todos, { Todo } from 'model/todos'
+
 import { meta } from 'constants/meta'
 
-const TodoPage = () => {
+interface TodoPageProps {
+  todos: Todo[]
+}
+
+const TodoPage = ({ todos }: TodoPageProps) => {
   const [form] = useCreatetNewTaskForm()
 
   const [visible, setVisible] = useState(false)
 
-  const query = useListTodo()
+  const query = useListTodo({
+    initialData: todos,
+  })
 
   const { isLoading, mutate } = useCreateOrUpdateTodo({
     onSuccess() {
@@ -56,3 +66,13 @@ const TodoPage = () => {
 }
 
 export default TodoPage
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const listTodos = await todos.get()
+
+  return {
+    props: {
+      todos: listTodos.body,
+    },
+  }
+}
