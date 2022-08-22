@@ -6,7 +6,9 @@ import { NavBar } from 'antd-mobile'
 const AppBar = ({ children, ...props }: NavBarProps) => {
   return (
     <AppBarContainer>
-      <NavBar {...props}>{children}</NavBar>
+      <NavBar {...props}>
+        <NavBarTitle>{children}</NavBarTitle>
+      </NavBar>
     </AppBarContainer>
   )
 }
@@ -17,4 +19,9 @@ const AppBarContainer = styled.div`
   padding: 8px 0;
   border-bottom: 1px solid var(--adm-color-border);
   box-shadow: 0 5px 40px var(--adm-color-border);
+`
+
+const NavBarTitle = styled.span`
+  font-size: 20px;
+  font-weight: bold;
 `
