@@ -1,5 +1,7 @@
+import PageRouter from 'setup/PageRouter'
+
 const App = () => {
-  return <h1>TheToon Assistant</h1>
+  return <PageRouter />
 }
 
 export default App
