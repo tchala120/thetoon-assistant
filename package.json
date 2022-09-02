@@ -13,6 +13,8 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "antd-mobile": "^5.22.0",
+    "antd-mobile-icons": "^0.3.0",
+    "change-case": "^4.1.2",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
