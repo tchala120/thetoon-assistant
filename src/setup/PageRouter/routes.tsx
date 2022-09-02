@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react'
 
-export type RouteKey = 'home' | 'todo' | 'ledger'
+export type RouteKey = 'home' | 'todo' | 'ledger' | 'setting'
 
 export interface RoutePath {
   key: RouteKey
@@ -12,4 +12,5 @@ export const paths: Record<RouteKey, string> = {
   home: '/',
   ledger: '/ledger',
   todo: '/todo',
+  setting: '/setting',
 }
