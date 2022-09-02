@@ -2,6 +2,9 @@ import type { ReactNode } from 'react'
 
 import styled from '@emotion/styled'
 import { NavBar } from 'antd-mobile'
+import { useLocation } from 'react-router-dom'
+
+import { getAppTitleFromPathname } from 'helpers/utils'
 
 interface AppLayoutProps {
   children: ReactNode
@@ -9,10 +12,12 @@ interface AppLayoutProps {
 }
 
 const AppLayout = ({ children, bottom }: AppLayoutProps) => {
+  const { pathname } = useLocation()
+
   return (
     <AppLayoutContainer>
       <AppBarContainer>
-        <NavBar />
+        <NavBar>{getAppTitleFromPathname(pathname)}</NavBar>
       </AppBarContainer>
 
       <AppBodyContainer>{children}</AppBodyContainer>
