@@ -1,10 +1,10 @@
-import AppLayout from 'layouts/AppLayout'
+import AppTabLayout from 'layouts/AppTabLayout'
 
 const LedgerPage = () => {
   return (
-    <AppLayout>
+    <AppTabLayout>
       <h1>Ledger Index Page</h1>
-    </AppLayout>
+    </AppTabLayout>
   )
 }
 

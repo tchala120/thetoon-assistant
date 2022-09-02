@@ -1,10 +1,10 @@
-import AppLayout from 'layouts/AppLayout'
+import AppTabLayout from 'layouts/AppTabLayout'
 
 const HomePage = () => {
   return (
-    <AppLayout>
+    <AppTabLayout>
       <h1>Home Page</h1>
-    </AppLayout>
+    </AppTabLayout>
   )
 }
 
