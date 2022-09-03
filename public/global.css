@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'SoDo Sans SemiBold', 'sans-serif';
+  src: url(./font.ttf);
+}
+
+* {
+  font-family: 'SoDo Sans SemiBold', sans-serif;
+}
