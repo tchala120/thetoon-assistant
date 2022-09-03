@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 
 import styled from '@emotion/styled'
-import { NavBar } from 'antd-mobile'
-import { useLocation } from 'react-router-dom'
+import { NavBar, SafeArea } from 'antd-mobile'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import { getAppTitleFromPathname } from 'helpers/utils'
 
@@ -15,19 +15,26 @@ interface AppLayoutProps extends LayoutProps {
 }
 
 const AppLayout = ({ appBarActionMenus, children, bottom }: AppLayoutProps) => {
+  const navigate = useNavigate()
   const { pathname } = useLocation()
 
   return (
     <AppLayoutContainer>
       <AppBarContainer>
-        <NavBar right={appBarActionMenus}>
+        <NavBar onBack={() => navigate(-1)} right={appBarActionMenus}>
           {getAppTitleFromPathname(pathname)}
         </NavBar>
       </AppBarContainer>
 
       <AppBodyContainer>{children}</AppBodyContainer>
 
-      {bottom && <AppBottomContainer>{bottom}</AppBottomContainer>}
+      {bottom && (
+        <AppBottomContainer>
+          {bottom}
+
+          <SafeArea position="bottom" />
+        </AppBottomContainer>
+      )}
     </AppLayoutContainer>
   )
 }
@@ -38,7 +45,6 @@ const AppBottomContainer = styled.div`
   position: sticky;
   bottom: 0;
   flex: 0;
-  background: #fff;
+  background-color: #fff;
   border-top: solid 1px var(--adm-color-border);
-  padding: 12px;
 `
