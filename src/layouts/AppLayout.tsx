@@ -1,12 +1,16 @@
 import type { ReactNode } from 'react'
 
-import styled from '@emotion/styled'
 import { NavBar, SafeArea } from 'antd-mobile'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import { getAppTitleFromPathname } from 'helpers/utils'
 
-import { AppBarContainer, AppBodyContainer, AppLayoutContainer } from './utils'
+import {
+  AppBarContainer,
+  AppBodyContainer,
+  AppBottomContainer,
+  AppLayoutContainer,
+} from './utils'
 
 import type { LayoutProps } from './types'
 
@@ -29,7 +33,7 @@ const AppLayout = ({ appBarActionMenus, children, bottom }: AppLayoutProps) => {
       <AppBodyContainer>{children}</AppBodyContainer>
 
       {bottom && (
-        <AppBottomContainer>
+        <AppBottomContainer style={{ padding: 12 }}>
           {bottom}
 
           <SafeArea position="bottom" />
@@ -40,11 +44,3 @@ const AppLayout = ({ appBarActionMenus, children, bottom }: AppLayoutProps) => {
 }
 
 export default AppLayout
-
-const AppBottomContainer = styled.div`
-  position: sticky;
-  bottom: 0;
-  flex: 0;
-  background-color: #fff;
-  border-top: solid 1px var(--adm-color-border);
-`

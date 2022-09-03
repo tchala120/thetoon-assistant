@@ -1,12 +1,16 @@
 import { useLocation } from 'react-router-dom'
 import { NavBar, SafeArea } from 'antd-mobile'
-import styled from '@emotion/styled'
 
 import BottomTabBar from 'components/BottomTabBar'
 
 import { getAppTitleFromPathname } from 'helpers/utils'
 
-import { AppBarContainer, AppBodyContainer, AppLayoutContainer } from './utils'
+import {
+  AppBarContainer,
+  AppBodyContainer,
+  AppBottomContainer,
+  AppLayoutContainer,
+} from './utils'
 
 import type { LayoutProps } from './types'
 
@@ -33,11 +37,3 @@ const AppTabLayout = ({ appBarActionMenus, children }: LayoutProps) => {
 }
 
 export default AppTabLayout
-
-const AppBottomContainer = styled.div`
-  position: sticky;
-  bottom: 0;
-  flex: 0;
-  background-color: #ffffff;
-  border-top: solid 1px var(--adm-color-border);
-`
