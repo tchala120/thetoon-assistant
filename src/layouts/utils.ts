@@ -17,8 +17,12 @@ export const AppBarContainer = styled.div`
 
 export const AppBodyContainer = styled.div`
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+`
+
+export const AppBottomContainer = styled.div`
+  position: sticky;
+  bottom: 0;
+  flex: 0;
+  background-color: #ffffff;
+  border-top: solid 1px var(--adm-color-border);
 `
