@@ -11,7 +11,7 @@ export const AppBarContainer = styled.div`
   position: sticky;
   top: 0;
   flex: 0;
-  background: #fff;
+  background-color: #ffffff;
   border-bottom: solid 1px var(--adm-color-border);
 `
 
@@ -21,5 +21,4 @@ export const AppBodyContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
 `
