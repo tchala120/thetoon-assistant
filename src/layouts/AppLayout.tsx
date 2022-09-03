@@ -8,18 +8,21 @@ import { getAppTitleFromPathname } from 'helpers/utils'
 
 import { AppBarContainer, AppBodyContainer, AppLayoutContainer } from './utils'
 
-interface AppLayoutProps {
-  children: ReactNode
+import type { LayoutProps } from './types'
+
+interface AppLayoutProps extends LayoutProps {
   bottom?: ReactNode
 }
 
-const AppLayout = ({ children, bottom }: AppLayoutProps) => {
+const AppLayout = ({ appBarActionMenus, children, bottom }: AppLayoutProps) => {
   const { pathname } = useLocation()
 
   return (
     <AppLayoutContainer>
       <AppBarContainer>
-        <NavBar>{getAppTitleFromPathname(pathname)}</NavBar>
+        <NavBar right={appBarActionMenus}>
+          {getAppTitleFromPathname(pathname)}
+        </NavBar>
       </AppBarContainer>
 
       <AppBodyContainer>{children}</AppBodyContainer>
