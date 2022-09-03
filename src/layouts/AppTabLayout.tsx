@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom'
-import { NavBar } from 'antd-mobile'
+import { NavBar, SafeArea } from 'antd-mobile'
 import styled from '@emotion/styled'
 
 import BottomTabBar from 'components/BottomTabBar'
@@ -25,6 +25,8 @@ const AppTabLayout = ({ appBarActionMenus, children }: LayoutProps) => {
 
       <AppBottomContainer>
         <BottomTabBar />
+
+        <SafeArea position="bottom" />
       </AppBottomContainer>
     </AppLayoutContainer>
   )
@@ -36,6 +38,6 @@ const AppBottomContainer = styled.div`
   position: sticky;
   bottom: 0;
   flex: 0;
-  background: #fff;
+  background-color: #ffffff;
   border-top: solid 1px var(--adm-color-border);
 `
