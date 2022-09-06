@@ -3,9 +3,11 @@ import { AddOutline } from 'antd-mobile-icons'
 
 import AppTabLayout from 'layouts/AppTabLayout'
 
-import CreateTodoPopup from 'components/CreateTodoPopup'
+import CreateTodoPopup, { useCreateTodoForm } from 'components/CreateTodoPopup'
 
 const TodoPage = () => {
+  const [form] = useCreateTodoForm()
+
   const [visible, setVisible] = useState(false)
 
   return (
@@ -21,6 +23,7 @@ const TodoPage = () => {
       <h1>Todo Index Page</h1>
 
       <CreateTodoPopup
+        form={form}
         visible={visible}
         onClose={() => setVisible(false)}
         onFinish={(values) => {
