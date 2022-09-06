@@ -1,6 +1,18 @@
-import { Button, Form, Input, Popup, SafeArea } from 'antd-mobile'
+import type { FormInstance } from 'rc-field-form'
+
+import { useState } from 'react'
+import {
+  Button,
+  Form,
+  Input,
+  Popup,
+  SafeArea,
+  Space,
+  Switch,
+} from 'antd-mobile'
 
 import PopupTitle from 'components/PopupTitle'
+import TimePicker from 'components/TimePicker'
 
 import { AppBodyContainer, AppBottomContainer } from 'layouts/utils'
 
@@ -11,17 +23,19 @@ interface FormValues {
 }
 
 interface CreateTodoPopupProps {
+  form: FormInstance<FormValues>
   visible: boolean
   onClose: VoidFunction
   onFinish: (value: FormValues) => void
 }
 
 const CreateTodoPopup = ({
+  form,
   visible,
   onClose,
   onFinish,
 }: CreateTodoPopupProps) => {
-  const [form] = Form.useForm<FormValues>()
+  const [reminder, setReminder] = useState(false)
 
   return (
     <Popup
@@ -48,8 +62,35 @@ const CreateTodoPopup = ({
             <Input />
           </Form.Item>
 
-          <Form.Item label="Reminder" name="reminder">
-            <Input />
+          <Form.Item
+            label={
+              <Space
+                style={{
+                  '--gap-horizontal': '18px',
+                }}
+              >
+                <span>Reminder</span>
+
+                <Switch
+                  style={{
+                    '--width': '42px',
+                    '--height': '24px',
+                  }}
+                  checked={reminder}
+                  onChange={(checked) => {
+                    setReminder(checked)
+
+                    form.setFieldValue(
+                      'reminder',
+                      checked ? '00:00' : undefined
+                    )
+                  }}
+                />
+              </Space>
+            }
+            name="reminder"
+          >
+            {reminder && <TimePicker />}
           </Form.Item>
         </Form>
       </AppBodyContainer>
@@ -66,3 +107,5 @@ const CreateTodoPopup = ({
 }
 
 export default CreateTodoPopup
+
+export const useCreateTodoForm = () => Form.useForm<FormValues>()
