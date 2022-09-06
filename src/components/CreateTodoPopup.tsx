@@ -16,20 +16,18 @@ import TimePicker from 'components/TimePicker'
 
 import { AppBodyContainer, AppBottomContainer } from 'layouts/utils'
 
-interface FormValues {
-  title: string
-  description: string
-  reminder: string
-}
+import type { CreateTodoVariable } from 'react-query/useCreateTodo'
 
 interface CreateTodoPopupProps {
-  form: FormInstance<FormValues>
+  loading?: boolean
+  form: FormInstance<CreateTodoVariable>
   visible: boolean
   onClose: VoidFunction
-  onFinish: (value: FormValues) => void
+  onFinish: (value: CreateTodoVariable) => void
 }
 
 const CreateTodoPopup = ({
+  loading,
   form,
   visible,
   onClose,
@@ -96,7 +94,7 @@ const CreateTodoPopup = ({
       </AppBodyContainer>
 
       <AppBottomContainer style={{ padding: 12 }}>
-        <Button color="primary" block onClick={form.submit}>
+        <Button loading={loading} color="primary" block onClick={form.submit}>
           Add new task
         </Button>
 
@@ -108,4 +106,4 @@ const CreateTodoPopup = ({
 
 export default CreateTodoPopup
 
-export const useCreateTodoForm = () => Form.useForm<FormValues>()
+export const useCreateTodoForm = () => Form.useForm<CreateTodoVariable>()
