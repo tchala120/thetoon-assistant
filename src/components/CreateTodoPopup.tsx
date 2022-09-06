@@ -52,7 +52,7 @@ const CreateTodoPopup = ({
 
       <AppBodyContainer>
         <Form form={form} onFinish={onFinish}>
-          <Form.Item label="Title" name="title">
+          <Form.Item label="Title" name="name">
             <Input />
           </Form.Item>
 
