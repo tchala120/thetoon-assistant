@@ -12,10 +12,14 @@ import CreateTodoPopup, { useCreateTodoForm } from 'components/CreateTodoPopup'
 import TodoList from 'components/Todo'
 
 const TodoPage = () => {
+  const [form] = useCreateTodoForm()
+
   const query = useTodos()
   const mutation = useCreateTodo({
     onSuccess() {
       setVisible(false)
+
+      query.refetch()
 
       setTimeout(() => {
         Toast.show({
@@ -33,10 +37,15 @@ const TodoPage = () => {
           ),
         })
       }, 250)
+
+      form.resetFields()
+    },
+    onError(error) {
+      console.log(error)
+
+      form.resetFields()
     },
   })
-
-  const [form] = useCreateTodoForm()
 
   const [visible, setVisible] = useState(false)
 
