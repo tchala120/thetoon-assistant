@@ -34,6 +34,12 @@ const TodoList = ({ loading, data, onOpen }: TodoListProps) => {
     )
   }
 
+  if (!Array.isArray(data)) {
+    console.log('data', data)
+
+    return <h1>Not Array</h1>
+  }
+
   return (
     <List header="Tasks">
       {data.map((item) => (
