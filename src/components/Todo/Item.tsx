@@ -7,9 +7,10 @@ import type { Todo } from 'react-query/types'
 
 interface TodoItemProps {
   data: Todo
+  deleteTodo: (id: number) => void
 }
 
-const TodoItem = ({ data }: TodoItemProps) => {
+const TodoItem = ({ data, deleteTodo }: TodoItemProps) => {
   const left: Action[] = [
     {
       key: 'check',
@@ -28,6 +29,9 @@ const TodoItem = ({ data }: TodoItemProps) => {
         Dialog.confirm({
           title: `Delete ${data.name}`,
           content: 'Are you sure to delete this item?',
+          onConfirm() {
+            deleteTodo(data.id)
+          },
           cancelText: (
             <span
               style={{
