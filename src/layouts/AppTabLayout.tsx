@@ -14,6 +14,9 @@ import {
 
 import type { LayoutProps } from './types'
 
+const contentHeight =
+  'calc(100vh - (94px + 44pt + env(safe-area-inset-bottom)))'
+
 const AppTabLayout = ({ appBarActionMenus, children }: LayoutProps) => {
   const { pathname } = useLocation()
 
@@ -25,7 +28,13 @@ const AppTabLayout = ({ appBarActionMenus, children }: LayoutProps) => {
         </NavBar>
       </AppBarContainer>
 
-      <AppBodyContainer>{children}</AppBodyContainer>
+      <AppBodyContainer
+        style={{
+          height: contentHeight,
+        }}
+      >
+        {children}
+      </AppBodyContainer>
 
       <AppBottomContainer>
         <BottomTabBar />

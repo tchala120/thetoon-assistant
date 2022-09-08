@@ -18,6 +18,9 @@ interface AppLayoutProps extends LayoutProps {
   bottom?: ReactNode
 }
 
+const contentHeight =
+  'calc(100vh - (45px + 44pt + env(safe-area-inset-bottom)))'
+
 const AppLayout = ({ appBarActionMenus, children, bottom }: AppLayoutProps) => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
@@ -30,7 +33,13 @@ const AppLayout = ({ appBarActionMenus, children, bottom }: AppLayoutProps) => {
         </NavBar>
       </AppBarContainer>
 
-      <AppBodyContainer>{children}</AppBodyContainer>
+      <AppBodyContainer
+        style={{
+          height: contentHeight,
+        }}
+      >
+        {children}
+      </AppBodyContainer>
 
       {bottom && (
         <AppBottomContainer style={{ padding: 12 }}>
