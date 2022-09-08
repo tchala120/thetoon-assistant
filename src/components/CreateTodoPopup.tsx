@@ -1,20 +1,10 @@
 import type { FormInstance } from 'rc-field-form'
 
 import { useState } from 'react'
-import {
-  Button,
-  Form,
-  Input,
-  Popup,
-  SafeArea,
-  Space,
-  Switch,
-} from 'antd-mobile'
+import { Button, Form, Input, Popup, Space, Switch } from 'antd-mobile'
 
-import PopupTitle from 'components/PopupTitle'
 import TimePicker from 'components/TimePicker'
-
-import { AppBodyContainer, AppBottomContainer } from 'layouts/utils'
+import PopupContent from 'components/PopupContent'
 
 import type { CreateTodoVariable } from 'react-query/useCreateTodo'
 
@@ -48,9 +38,9 @@ const CreateTodoPopup = ({
         flexDirection: 'column',
       }}
     >
-      <PopupTitle onClose={onClose}>Add new task</PopupTitle>
+      <PopupContent.Title onClose={onClose}>Add new task</PopupContent.Title>
 
-      <AppBodyContainer>
+      <PopupContent>
         <Form form={form} onFinish={onFinish}>
           <Form.Item label="Title" name="name">
             <Input />
@@ -91,15 +81,13 @@ const CreateTodoPopup = ({
             {reminder && <TimePicker />}
           </Form.Item>
         </Form>
-      </AppBodyContainer>
+      </PopupContent>
 
-      <AppBottomContainer style={{ padding: 12 }}>
+      <PopupContent.Bottom>
         <Button loading={loading} color="primary" block onClick={form.submit}>
           Add new task
         </Button>
-
-        <SafeArea position="bottom" />
-      </AppBottomContainer>
+      </PopupContent.Bottom>
     </Popup>
   )
 }
