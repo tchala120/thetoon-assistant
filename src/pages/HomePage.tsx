@@ -1,9 +1,11 @@
 import AppTabLayout from 'layouts/AppTabLayout'
 
+import Home from 'components/Home'
+
 const HomePage = () => {
   return (
     <AppTabLayout>
-      <h1>Home Page</h1>
+      <Home />
     </AppTabLayout>
   )
 }

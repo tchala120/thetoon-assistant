@@ -48,3 +48,8 @@ export interface Todo {
   updated_at: Date
   reminded: boolean
 }
+
+export interface GroupTodo {
+  reminder: string
+  todos: Todo[]
+}
