@@ -64,6 +64,14 @@ const TodoPage = () => {
           loading={query.isLoading}
           data={query.data}
           onOpen={() => setVisible(true)}
+          onDeleteCompleted={() => {
+            Toast.show({
+              icon: 'success',
+              content: 'Delete success.',
+            })
+
+            query.refetch()
+          }}
         />
       </PullToRefresh>
 
