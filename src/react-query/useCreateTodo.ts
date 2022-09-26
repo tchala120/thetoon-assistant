@@ -6,7 +6,7 @@ import type { MutationResponse, Todo } from './types'
 export interface CreateTodoVariable {
   name: string
   description: string
-  reminder: string
+  reminder?: string
 }
 
 const useCreateTodo: MutationResponse<Todo, any, CreateTodoVariable> = (
