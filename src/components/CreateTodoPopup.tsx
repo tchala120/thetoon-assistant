@@ -1,19 +1,35 @@
+import type { RefObject } from 'react'
 import type { FormInstance } from 'rc-field-form'
+import type { DatePickerRef } from 'antd-mobile/es/components/date-picker'
 
 import { useState } from 'react'
-import { Button, Form, Input, Popup, Space, Switch } from 'antd-mobile'
+import {
+  Button,
+  DatePicker,
+  Form,
+  Input,
+  Popup,
+  Space,
+  Switch,
+} from 'antd-mobile'
+import dayjs from 'dayjs'
 
-import TimePicker from 'components/TimePicker'
 import PopupContent from 'components/PopupContent'
 
-import type { CreateTodoVariable } from 'react-query/useCreateTodo'
+import { DATE_TIME_FORMAT } from 'helpers/formatter'
+
+interface FormValues {
+  name: string
+  description: string
+  reminder?: Date
+}
 
 interface CreateTodoPopupProps {
   loading?: boolean
-  form: FormInstance<CreateTodoVariable>
+  form: FormInstance<FormValues>
   visible: boolean
   onClose: VoidFunction
-  onFinish: (value: CreateTodoVariable) => void
+  onFinish: (value: FormValues) => void
 }
 
 const CreateTodoPopup = ({
@@ -23,7 +39,7 @@ const CreateTodoPopup = ({
   onClose,
   onFinish,
 }: CreateTodoPopupProps) => {
-  const [reminder, setReminder] = useState(false)
+  const [isReminder, setIsReminder] = useState(false)
 
   return (
     <Popup
@@ -50,36 +66,54 @@ const CreateTodoPopup = ({
             <Input />
           </Form.Item>
 
-          <Form.Item
-            label={
-              <Space
+          <Form.Item>
+            <Space align="center">
+              <span
                 style={{
-                  '--gap-horizontal': '18px',
+                  fontSize: 15,
+                  color: '#666',
                 }}
               >
-                <span>Reminder</span>
+                Reminder
+              </span>
 
-                <Switch
-                  style={{
-                    '--width': '42px',
-                    '--height': '24px',
-                  }}
-                  checked={reminder}
-                  onChange={(checked) => {
-                    setReminder(checked)
-
-                    form.setFieldValue(
-                      'reminder',
-                      checked ? '00:00' : undefined
-                    )
-                  }}
-                />
-              </Space>
-            }
-            name="reminder"
-          >
-            {reminder && <TimePicker />}
+              <Switch
+                checked={isReminder}
+                onChange={setIsReminder}
+                style={{
+                  '--width': '40px',
+                  '--height': '24px',
+                }}
+              />
+            </Space>
           </Form.Item>
+
+          {isReminder && (
+            <Form.Item
+              className="reminder-date-picker"
+              name="reminder"
+              trigger="onConfirm"
+              onClick={(_, datePickerRef: RefObject<DatePickerRef>) => {
+                datePickerRef.current?.open()
+              }}
+            >
+              <DatePicker precision="minute">
+                {(value) =>
+                  value ? (
+                    dayjs(value).format(DATE_TIME_FORMAT)
+                  ) : (
+                    <small
+                      style={{
+                        color: '#999',
+                      }}
+                    >
+                      Please select a date
+                    </small>
+                  )
+                }
+              </DatePicker>
+            </Form.Item>
+          )}
         </Form>
       </PopupContent>
 
@@ -94,4 +128,4 @@ const CreateTodoPopup = ({
 
 export default CreateTodoPopup
 
-export const useCreateTodoForm = () => Form.useForm<CreateTodoVariable>()
+export const useCreateTodoForm = () => Form.useForm<FormValues>()
