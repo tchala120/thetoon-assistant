@@ -11,3 +11,7 @@
 body {
   overflow: hidden;
 }
+
+.reminder-date-picker .adm-list-item-content {
+  border-top: none;
+}
