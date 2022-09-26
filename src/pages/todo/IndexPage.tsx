@@ -80,7 +80,12 @@ const TodoPage = () => {
         form={form}
         visible={visible}
         onClose={() => setVisible(false)}
-        onFinish={mutation.mutate}
+        onFinish={(values) => {
+          mutation.mutate({
+            ...values,
+            reminder: values.reminder?.toISOString(),
+          })
+        }}
       />
     </AppTabLayout>
   )
