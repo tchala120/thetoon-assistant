@@ -1,0 +1,1 @@
+export { PWAUpdateAlert } from './PWAUpdateAlert'
