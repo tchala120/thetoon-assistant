@@ -21,10 +21,14 @@ const prettierConfig = {
 	trailingComma: 'all',
 	useTabs: true,
 	printWidth: 80,
-	plugins: ['@trivago/prettier-plugin-sort-imports'],
+	plugins: [
+		'@trivago/prettier-plugin-sort-imports',
+		'prettier-plugin-tailwindcss',
+	],
 	importOrder: [...importOrder, '^[./]'],
 	importOrderSeparation: true,
 	importOrderSortSpecifiers: true,
+	importOrderSideEffects: false,
 }
 
 export default prettierConfig
