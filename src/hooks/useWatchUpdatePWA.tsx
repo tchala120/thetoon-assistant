@@ -1,10 +1,13 @@
+import { useQuery } from '@tanstack/react-query'
+import { Info } from 'lucide-react'
+import { toast } from 'sonner'
 import { useRegisterSW } from 'virtual:pwa-register/react'
 
 interface NeedUpdatePWAOptions {
 	period?: number
 }
 
-export const useNeedUpdatePWA = (options?: NeedUpdatePWAOptions) => {
+export const useWatchUpdatePWA = (options?: NeedUpdatePWAOptions) => {
 	const period = options?.period ?? 60 * 60 * 1000
 
 	const {
@@ -55,11 +58,27 @@ export const useNeedUpdatePWA = (options?: NeedUpdatePWAOptions) => {
 		updateServiceWorker(true)
 	}
 
-	return {
-		isUpdateAvailable: offlineReady || needRefresh,
-		onUpdateServiceWorker,
-		onDismissUpdate,
-	}
+	useQuery({
+		queryKey: ['pwa-update', offlineReady, needRefresh],
+		queryFn: () => {
+			const isUpdateAvailable = offlineReady || needRefresh
+
+			if (isUpdateAvailable) {
+				toast('A new version of the app is available', {
+					position: 'bottom-center',
+					duration: Infinity,
+					icon: <Info />,
+					action: {
+						label: 'REFRESH',
+						onClick: () => onUpdateServiceWorker(),
+					},
+					onDismiss: () => {
+						onDismissUpdate()
+					},
+				})
+			}
+		},
+	})
 }
 
 interface RegisterPeriodSyncOptions {
