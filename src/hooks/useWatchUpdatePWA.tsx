@@ -67,7 +67,7 @@ export const useWatchUpdatePWA = (options?: NeedUpdatePWAOptions) => {
 				toast('A new version of the app is available', {
 					position: 'bottom-center',
 					duration: Infinity,
-					icon: <Info />,
+					icon: <Info fontSize={12} />,
 					action: {
 						label: 'REFRESH',
 						onClick: () => onUpdateServiceWorker(),
@@ -77,6 +77,8 @@ export const useWatchUpdatePWA = (options?: NeedUpdatePWAOptions) => {
 					},
 				})
 			}
+
+			return isUpdateAvailable
 		},
 	})
 }
