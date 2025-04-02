@@ -25,6 +25,7 @@ const prettierConfig = {
 		'@trivago/prettier-plugin-sort-imports',
 		'prettier-plugin-tailwindcss',
 	],
+	tailwindFunctions: ['cn', 'cva'],
 	importOrder: [...importOrder, '^[./]'],
 	importOrderSeparation: true,
 	importOrderSortSpecifiers: true,
