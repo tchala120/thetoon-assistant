@@ -6,8 +6,10 @@ export const Route = createFileRoute('/')({
 
 function IndexPage() {
 	return (
-		<div>
-			<h1 className="text-red-500">This is index page</h1>
-		</div>
+		<>
+			<div>Calendar shortcut</div>
+
+			<div>Expense budget today shortcut</div>
+		</>
 	)
 }
