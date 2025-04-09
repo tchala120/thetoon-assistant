@@ -12,8 +12,6 @@ function Root() {
 
 	return (
 		<>
-			<div>Hello "__root"!</div>
-
 			<Outlet />
 
 			<Toaster />
