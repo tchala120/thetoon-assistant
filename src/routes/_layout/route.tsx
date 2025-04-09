@@ -6,12 +6,12 @@ export const Route = createFileRoute('/_layout')({
 
 function Layout() {
 	return (
-		<>
-			<main>
+		<div className="flex h-screen flex-col">
+			<main className="flex flex-1 flex-col overflow-y-scroll">
 				<Outlet />
 			</main>
 
 			<div>Bottom navigation bar</div>
-		</>
+		</div>
 	)
 }
