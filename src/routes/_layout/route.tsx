@@ -1,5 +1,7 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router'
 
+import { BottomNavigationBar } from '@/components/BottomNavigationBar'
+
 export const Route = createFileRoute('/_layout')({
 	component: Layout,
 })
@@ -11,7 +13,7 @@ function Layout() {
 				<Outlet />
 			</main>
 
-			<div>Bottom navigation bar</div>
+			<BottomNavigationBar />
 		</div>
 	)
 }
